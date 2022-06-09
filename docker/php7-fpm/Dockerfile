@@ -32,7 +32,7 @@ RUN echo "xdebug.remote_port=9001" >> /usr/local/etc/php/conf.d/docker-php-ext-x
 
 
 
-WORKDIR /var/www/app/skeleton
+WORKDIR /var/www/app
 
 #ENTRYPOINT [“./test.sh”,”start”]
 
