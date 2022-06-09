@@ -1,0 +1,63 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql
+    container_name: db_sym_mico
+    restart : always
+    command: --default-authentication-plugin=mysql_native_password
+      #volumes:
+    # - "./.data/db:/var/lib/mysql"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+
+    ports:
+      - 13309:3306
+
+
+
+  php:
+    restart : always
+    build:
+      context: docker/php7-fpm
+      args:
+        TIMEZONE: ${TIMEZONE}
+    ports:
+      - 33009:33009
+    environment:
+      - COMPOSER_MEMORY_LIMIT=-1
+    volumes:
+      - ${APP_PATH}:/var/www/app
+    depends_on:
+      - db
+
+      #links:
+      #- db:db
+
+  nginx:
+    build: docker/nginx
+    ports:
+      - 8181:80
+      #depends_on:
+      #- db
+      #volumes:
+      #- ${APP_PATH}:/var/www/app
+    volumes:
+      - ./logs/nginx/:/var/log/nginx
+      - ${APP_PATH}:/var/www/app
+
+    depends_on:
+      - php
+      - db
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - db:db
+    ports:
+      - 8086:80
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+
