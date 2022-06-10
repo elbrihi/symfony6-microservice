@@ -83,6 +83,23 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/property-info" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/serializer" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/property-access" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/doctrine-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/stopwatch" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/proxy-manager-bridge" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/laminas/laminas-code" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/persistence" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/collections" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/doctrine-migrations-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/common" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/migrations" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/doctrine-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/orm" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/deprecations" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/event-manager" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/dbal" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/cache" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/friendsofphp/proxy-manager-lts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

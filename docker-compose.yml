@@ -20,7 +20,7 @@ services:
   php:
     restart : always
     build:
-      context: docker/php7-fpm
+      context: docker/php8-fpm
       args:
         TIMEZONE: ${TIMEZONE}
     ports:
