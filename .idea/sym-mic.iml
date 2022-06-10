@@ -79,6 +79,10 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/event-dispatcher-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/phpstan/phpdoc-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/property-info" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/serializer" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/property-access" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
