@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\PromotionRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PromotionRepository::class)]
@@ -24,6 +26,18 @@ class Promotion
 
     #[ORM\Column(type: 'json')]
     private $criteria = [];
+
+    #[ORM\OneToMany(mappedBy: 'promotion', targetEntity: ProductPromotion::class)]
+    private $productPromotions;
+
+    public function __construct()
+    {
+        $this->productPromotions = new ArrayCollection();
+    }
+
+
+
+
 
     public function getId(): ?int
     {
@@ -71,10 +85,34 @@ class Promotion
         return $this->criteria;
     }
 
-    public function setCriteria(array $criteria): self
+    /**
+     * @return Collection<int, ProductPromotion>
+     */
+    public function getProductPromotions(): Collection
     {
-        $this->criteria = $criteria;
+        return $this->productPromotions;
+    }
+
+    public function addProductPromotion(ProductPromotion $productPromotion): self
+    {
+        if (!$this->productPromotions->contains($productPromotion)) {
+            $this->productPromotions[] = $productPromotion;
+            $productPromotion->setPromotion($this);
+        }
 
         return $this;
     }
+
+    public function removeProductPromotion(ProductPromotion $productPromotion): self
+    {
+        if ($this->productPromotions->removeElement($productPromotion)) {
+            // set the owning side to null (unless already changed)
+            if ($productPromotion->getPromotion() === $this) {
+                $productPromotion->setPromotion(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

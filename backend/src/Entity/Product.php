@@ -18,17 +18,16 @@ class Product
     #[ORM\Column(type: 'integer')]
     private $price;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPromotion::class)]
+   /* #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPromotion::class)]
     private $productPromotions;
 
-    #[ORM\OneToMany(mappedBy: 'promotion', targetEntity: ProductPromotion::class)]
-    private $validTo;
+
+
 
     public function __construct()
     {
         $this->productPromotions = new ArrayCollection();
-        $this->validTo = new ArrayCollection();
-    }
+    }*/
 
     public function getId(): ?int
     {
@@ -50,7 +49,7 @@ class Product
     /**
      * @return Collection<int, ProductPromotion>
      */
-    public function getProductPromotions(): Collection
+    /*public function getProductPromotions(): Collection
     {
         return $this->productPromotions;
     }
@@ -77,23 +76,7 @@ class Product
         return $this;
     }
 
-    /**
-     * @return Collection<int, ProductPromotion>
-     */
-    public function getValidTo(): Collection
-    {
-        return $this->validTo;
-    }
 
-    public function addValidTo(ProductPromotion $validTo): self
-    {
-        if (!$this->validTo->contains($validTo)) {
-            $this->validTo[] = $validTo;
-            $validTo->setPromotion($this);
-        }
-
-        return $this;
-    }
 
     public function removeValidTo(ProductPromotion $validTo): self
     {
@@ -105,5 +88,5 @@ class Product
         }
 
         return $this;
-    }
+    }*/
 }

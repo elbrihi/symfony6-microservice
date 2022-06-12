@@ -13,16 +13,21 @@ class ProductPromotion
     #[ORM\Column(type: 'integer')]
     private $id;
 
+ 
+
+    #[ORM\Column(type: 'datetime', nullable: true)]
+    private $validTo;
+
     #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'productPromotions')]
     #[ORM\JoinColumn(nullable: false)]
     private $product;
 
-    #[ORM\ManyToOne(targetEntity: Product::class, inversedBy: 'validTo')]
+    #[ORM\ManyToOne(targetEntity: Promotion::class)]
     #[ORM\JoinColumn(nullable: false)]
     private $promotion;
 
-    #[ORM\Column(type: 'datetime', nullable: true)]
-    private $validTo;
+
+
 
     public function getId(): ?int
     {
@@ -41,12 +46,12 @@ class ProductPromotion
         return $this;
     }
 
-    public function getPromotion(): ?Product
+    public function getPromotion(): ?Promotion
     {
         return $this->promotion;
     }
 
-    public function setPromotion(?Product $promotion): self
+    public function setPromotion(?Promotion $promotion): self
     {
         $this->promotion = $promotion;
 

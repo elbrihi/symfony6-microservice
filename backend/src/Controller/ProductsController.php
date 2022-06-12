@@ -4,46 +4,69 @@ namespace App\Controller;
 
 
 use App\DTO\LowestPriceEnquiry;
+use App\Entity\Promotion;
+use App\Repository\ProductRepository;
 use App\Service\Serializer\DTOSerializer;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Filter\PromotionsFilterInterface;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
-use Symfony\Flex\Response;
+
 
 class ProductsController extends AbstractController
 {
+
+    public function __construct
+    (
+        private ProductRepository $productRepository,
+        private EntityManagerInterface $entityManager
+    )
+    {
+
+
+    }
+
+
 
     #[Route('/products/{id}/lowest-price', name: 'lowest-price', methods: 'POST')]
     public function lowestPrice(
         Request $request,
         int $id,
         DTOSerializer $serializer,
+        PromotionsFilterInterface $lowestPriceEnquiry,
         PromotionsFilterInterface $promotionsFilter
-        ): JsonResponse
+        ): Response
     {
-            $lowestPriceEnquiry = $serializer->deserialize(
-                $request->getContent(), LowestPriceEnquiry::class, 'json'
+
+
+
+          $product = $this->productRepository->find($id);
+
+
+          $lowestPriceEnquiry = $serializer->deserialize(
+                $request->getContent(), LowestPriceEnquiry::class, 'json');
+
+
+          $lowestPriceEnquiry->setProduct($product);
+
+
+          $promotion = $this->entityManager->getRepository(Promotion::class)->findValidForProduct(
+                $product,
+                date_create_immutable($lowestPriceEnquiry->getRequestDate())
+
             );
 
 
-
-            // 1. Deserialize json data into a EnquiryDTO
-
-            // 2. Pass The Enquiry into a promotions filter
+            $modifiedEnquiry= $promotionsFilter->apply($lowestPriceEnquiry, ...$promotion);
 
 
+            $responseContent = $serializer->serialize($modifiedEnquiry , 'json') ;
 
-            $responseContent = $serializer->serialize($promotionsFilter->apply($lowestPriceEnquiry) , 'json') ;
 
-
-            return new JsonResponse($responseContent,200);
+            return new Response($responseContent,200, ['Content-Type' => 'application/json']);
 
 
     }
@@ -60,6 +83,6 @@ class ProductsController extends AbstractController
                  ['error' => 'Promotions Egine failure message'],
                   $request->headers->get('fail')
              );
-         }*/
+        }*/
 
 }
