@@ -25,10 +25,9 @@ class ProductsController extends AbstractController
         private EntityManagerInterface $entityManager
     )
     {
-
+           // dd('hello');
 
     }
-
 
 
     #[Route('/products/{id}/lowest-price', name: 'lowest-price', methods: 'POST')]
@@ -44,7 +43,6 @@ class ProductsController extends AbstractController
 
 
           $product = $this->productRepository->find($id);
-
 
           $lowestPriceEnquiry = $serializer->deserialize(
                 $request->getContent(), LowestPriceEnquiry::class, 'json');

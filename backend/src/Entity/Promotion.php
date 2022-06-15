@@ -68,19 +68,24 @@ class Promotion
         return $this;
     }
 
-    public function getAdjusment(): ?float
+    public function getAdjustment(): ?float
     {
         return $this->adjusment;
     }
 
-    public function setAdjusment(float $adjusment): self
+    public function setAdjustment(float $adjusment): self
     {
         $this->adjusment = $adjusment;
 
         return $this;
     }
+    public function setCriteria(array $criteria): self
+    {
+        $this->criteria = $criteria;
 
-    public function getCriteria(): ?array
+        return $this;
+    }
+    public function getCriterial(): ?array
     {
         return $this->criteria;
     }

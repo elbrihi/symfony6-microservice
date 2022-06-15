@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use JetBrains\PhpStorm\Internal\TentativeType;
 use ReturnTypeWillChange;
 use Symfony\Component\Serializer\Annotation\Ignore;
-
+//class LowestPriceEnquiry implements \PromotionEnquiryInterface
 class LowestPriceEnquiry implements \PromotionEnquiryInterface
 {
 
