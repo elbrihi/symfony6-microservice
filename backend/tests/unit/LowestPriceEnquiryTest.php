@@ -3,6 +3,7 @@
 namespace App\Tests\unit;
 
 use App\DTO\LowestPriceEnquiry;
+use App\Entity\Product;
 use App\Entity\Promotion;
 use App\Filter\LowestPriceFilter;
 use App\Tests\ServiceTestCase;
@@ -20,7 +21,15 @@ class LowestPriceEnquiryTest extends ServiceTestCase
 
                 // 4Given
                 $lowestPriceFilter  = $this->container->get(LowestPriceFilter::class);
+
+                $product = new Product();
+                $product->setPrice(100);
+
+
+
                 $enquiry = new LowestPriceEnquiry();
+                $enquiry->setProduct($product);
+                $enquiry->setQuantity(5);
                 $promotion = $this->promotionsDataProvider();
 
                 // When
