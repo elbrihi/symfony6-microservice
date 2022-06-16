@@ -85,7 +85,7 @@ class Promotion
 
         return $this;
     }
-    public function getCriterial(): ?array
+    public function getCriteria(): ?array
     {
         return $this->criteria;
     }

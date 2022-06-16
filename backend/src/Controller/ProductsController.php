@@ -50,7 +50,6 @@ class ProductsController extends AbstractController
 
           $lowestPriceEnquiry->setProduct($product);
 
-
           $promotion = $this->entityManager->getRepository(Promotion::class)->findValidForProduct(
                 $product,
                 date_create_immutable($lowestPriceEnquiry->getRequestDate())
@@ -74,13 +73,5 @@ class ProductsController extends AbstractController
         dd('hello');
     }
 
-
-    /*if ($request->headers->has('fail'))
-         {
-             return new JsonResponse(
-                 ['error' => 'Promotions Egine failure message'],
-                  $request->headers->get('fail')
-             );
-        }*/
 
 }

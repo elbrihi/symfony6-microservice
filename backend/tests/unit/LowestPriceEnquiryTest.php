@@ -14,7 +14,7 @@ class LowestPriceEnquiryTest extends ServiceTestCase
 
 
 
-    #[NoReturn]
+        #[NoReturn]
         public function testLowest_price_promotions_filtering_is_applied_correctly(): void
         {
 
@@ -43,6 +43,7 @@ class LowestPriceEnquiryTest extends ServiceTestCase
                 $this->assertSame(50, $filteredEnquiry->getDiscountedPrice());
                 $this->assertSame("Black Friday half price sale", $filteredEnquiry->getPromotionName());
         }
+
 
 
         public function promotionsDataProvider(): array
