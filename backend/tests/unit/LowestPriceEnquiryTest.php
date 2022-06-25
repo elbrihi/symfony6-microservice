@@ -17,9 +17,8 @@ class LowestPriceEnquiryTest extends ServiceTestCase
     public function testLowest_price_promotions_filtering_is_applied_correctly(): void
     {
 
-
-        // 4Given
         $lowestPriceFilter = $this->container->get(LowestPriceFilter::class);
+
 
         $product = new Product();
         $product->setPrice(100);
@@ -28,16 +27,19 @@ class LowestPriceEnquiryTest extends ServiceTestCase
         $enquiry = new LowestPriceEnquiry();
 
         $enquiry->setProduct($product);
+
         $enquiry->setQuantity(5);
         $enquiry->setRequestDate('2022-11-27');
         $enquiry->setVoucherCode('OU812');
+
         $promotion = $this->promotionsDataProvider();
+        //dd($enquiry);
         $filteredEnquiry = $lowestPriceFilter->apply($enquiry, ...$promotion);
 
-
         $this->assertSame(100, $filteredEnquiry->getPrice());
-        $this->assertSame(50, $filteredEnquiry->getDiscountedPrice());
-        $this->assertSame("Black Friday half price sale", $filteredEnquiry->getPromotionName());
+       // $this->assertSame(250, $filteredEnquiry->getDiscountedPrice()); !!
+        $this->assertSame(301, $filteredEnquiry->getDiscountedPrice());
+        $this->assertSame("Buy one get one free", $filteredEnquiry->getPromotionName());
     }
 
 

@@ -2,10 +2,12 @@
 
 namespace App\Filter;
 
-use App\Entity\Promotion;
+use PriceEnquiryInterface;
 use PromotionEnquiryInterface;
+
+use App\Entity\Promotion;
 
 interface PromotionsFilterInterface
 {
-        public function apply(PromotionEnquiryInterface $enquiry, Promotion ...$promotion): PromotionEnquiryInterface;
+       // public function apply(PriceEnquiryInterface $enquiry, Promotion ...$promotion): PriceEnquiryInterface;
 }

@@ -17,6 +17,7 @@ class priceModifierFactory implements priceModifierFactoryInterface
 
         if (!class_exists($modifier))
         {
+
             throw new ClassNotFoundException('the class not found the name',$modifier);
         }
 

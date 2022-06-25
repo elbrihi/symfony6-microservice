@@ -2,13 +2,15 @@
 
 namespace App\DTO;
 
+use App\DTO\PriceEnquiryInterface;
 use App\Entity\Product;
-use Doctrine\Common\Collections\ArrayCollection;
-use JetBrains\PhpStorm\Internal\TentativeType;
-use ReturnTypeWillChange;
 use Symfony\Component\Serializer\Annotation\Ignore;
 //class LowestPriceEnquiry implements \PromotionEnquiryInterface
-class LowestPriceEnquiry implements \PromotionEnquiryInterface
+
+//class LowestPriceEnquiry implements PromotionEnquiryInterface
+
+class LowestPriceEnquiry implements PriceEnquiryInterface
+
 {
 
     #[Ignore]
@@ -56,7 +58,7 @@ class LowestPriceEnquiry implements \PromotionEnquiryInterface
      */
     public function getQuantity(): ?int
     {
-        return $this->quantity;
+        return $this->quantity ;
     }
 
     /**
