@@ -22,3 +22,11 @@
 2022/06/17 16:23:42 [alert] 1#0: worker process 8 exited on signal 9
 2022/06/17 16:23:42 [alert] 1#0: worker process 9 exited on signal 9
 2022/06/17 16:23:42 [alert] 1#0: worker process 10 exited on signal 9
+2022/06/25 14:54:33 [alert] 1#0: worker process 13 exited on signal 9
+2022/06/25 14:54:33 [alert] 1#0: worker process 11 exited on signal 9
+2022/06/25 14:54:33 [alert] 1#0: worker process 12 exited on signal 9
+2022/06/25 14:54:33 [alert] 1#0: worker process 10 exited on signal 9
+2022/07/05 02:43:09 [alert] 1#0: worker process 9 exited on signal 9
+2022/07/05 02:43:09 [alert] 1#0: worker process 7 exited on signal 9
+2022/07/05 02:43:09 [alert] 1#0: worker process 8 exited on signal 9
+2022/07/05 02:43:09 [alert] 1#0: worker process 10 exited on signal 9

@@ -34,7 +34,7 @@ services:
 
       #links:
       #- db:db
-
+  
   nginx:
     build: docker/nginx
     ports:
