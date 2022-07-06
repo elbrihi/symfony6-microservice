@@ -96,6 +96,9 @@
       <path value="$PROJECT_DIR$/backend/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/backend/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/backend/vendor/friendsofphp/proxy-manager-lts" />
+      <path value="$PROJECT_DIR$/backend/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/validator" />
+      <path value="$PROJECT_DIR$/backend/vendor/symfony/translation-contracts" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1">

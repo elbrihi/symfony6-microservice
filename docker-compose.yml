@@ -34,7 +34,13 @@ services:
 
       #links:
       #- db:db
-  
+  #redis:
+    #image: redis.7.0.0
+    #ports:
+      #- 6379
+
+
+
   nginx:
     build: docker/nginx
     ports:

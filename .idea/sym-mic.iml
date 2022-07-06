@@ -100,6 +100,9 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/friendsofphp/proxy-manager-lts" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/predis/predis" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/validator" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/translation-contracts" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
