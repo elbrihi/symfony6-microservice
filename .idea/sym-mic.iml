@@ -103,6 +103,11 @@
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/predis/predis" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/validator" />
       <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/translation-contracts" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/friendsofsymfony/rest-bundle" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/willdurand/negotiation" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/willdurand/jsonp-callback-validator" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/password-hasher" />
+      <excludeFolder url="file://$MODULE_DIR$/backend/vendor/symfony/security-core" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

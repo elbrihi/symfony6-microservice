@@ -49,6 +49,7 @@ class ProductsController extends AbstractController
 
           $product = $this->productRepository->find($id);
 
+
           $lowestPriceEnquiry = $serializer->deserialize(
                 $request->getContent(), LowestPriceEnquiry::class, 'json');
 
@@ -57,17 +58,7 @@ class ProductsController extends AbstractController
 
         $promotions =  $this->promotionCache->findValidForProduct($product,$lowestPriceEnquiry->getRequestDate());
 
-          /*$promotions = $cache->get("find-valid-for-product-$id", function (ItemInterface $item) use($product,$lowestPriceEnquiry){
-
-              var_dump('hello world');
-              return  $this->entityManager->getRepository(Promotion::class)->findValidForProduct(
-                  $product,
-                  date_create_immutable($lowestPriceEnquiry->getRequestDate())
-              );
-          });*/
-
-         // dd($promotions);
-          $modifiedEnquiry= $promotionsFilter->apply($lowestPriceEnquiry, ...$promotions);
+        $modifiedEnquiry= $promotionsFilter->apply($lowestPriceEnquiry, ...$promotions);
 
 
           $responseContent = $serializer->serialize($modifiedEnquiry , 'json') ;

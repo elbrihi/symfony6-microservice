@@ -22,7 +22,9 @@ class DTOSerializer implements SerializerInterface
     private EventDispatcherInterface $eventDispatcher;
     public function __construct(EventDispatcherInterface $eventDispatcher)
     {
+
         $this->eventDispatcher = $eventDispatcher;
+
         $this->serializer = new Serializer(
              [new ObjectNormalizer(
                  classMetadataFactory: new ClassMetadataFactory(new AnnotationLoader(new AnnotationReader())),
@@ -34,18 +36,22 @@ class DTOSerializer implements SerializerInterface
 
     public function serialize(mixed $data, string $format, array $context = []): string
     {
-       return $this->serializer->serialize($data, $format, $context);
+
+        return $this->serializer->serialize($data, $format, $context);
     }
 
     public function deserialize(mixed $data, string $type, string $format, $context = []): mixed
     {
-        //return  $this->serializer->deserialize($data, $type, $format, $context);
+
 
         $dto =  $this->serializer->deserialize($data, $type, $format, $context);
+
 
         $event = new AfterDtoCreatedEvent($dto);
 
         $this->eventDispatcher->dispatch($event, $event::NAME);
+
+
         return  $dto ;
     }
 }

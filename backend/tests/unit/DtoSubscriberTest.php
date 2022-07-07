@@ -23,6 +23,7 @@ class DtoSubscriberTest extends ServiceTestCase
         $eventDispatcher = $this->container->get('debug.event_dispatcher');
 
         $this->expectException(ValidationFailedException::class);
+
         $this->expectExceptionMessage('This value should be positive.');
 
         $eventDispatcher->dispatch($event,$event::NAME);
